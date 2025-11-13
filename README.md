@@ -12,8 +12,8 @@
 - **قیمت‌گذاری مبتنی بر بهبود** (۱۰۰۰$ پایه + پاداش >۲۰% دقت)
 
 ## Pipeline انحصاری Pro
-- **اجرا:** `python full_gig_pipeline_pro_v2.py`  
-- **نیازها:** Python 3.10+، `pip install -r requirements.txt`  
+- **اجرا:** `python full_gig_pipeline_pro_v2.py --model "your_model"`  
+- **نیازها:** `pip install -r requirements.txt`  
 - [دانلود کد کامل](full_gig_pipeline_pro_v2.py)  
 - [Dockerfile](Dockerfile)
 
