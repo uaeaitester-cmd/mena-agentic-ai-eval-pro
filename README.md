@@ -6,15 +6,15 @@
 
 ## خدمات پیشرفته (۳۰۰۰$+ ارزش‌محور)
 - **ارزیابی agentic AI** با OODA cycle (مشاهده-جهت‌یابی-تصمیم-عمل)  
-- **گزارش ۳ بعدی visualized** + SHAP/LIME hybrid  
+- **گزارش ۳ بعدی visualized** + SHAP hybrid  
 - **کشف نقاط کور هوشمند** با clustering  
-- **تحویل Docker** + دمو Streamlit  
+- **تحویل Docker** + دمو  
 - **قیمت‌گذاری مبتنی بر بهبود** (۱۰۰۰$ پایه + پاداش >۲۰% دقت)
 
-## Pipeline انحصاری Pro
-- **اجرا:** `python full_gig_pipeline_pro_v2.py --model "your_model"`  
+## Pipeline انحصاری Pro v3 (۱۰۰% تست‌شده)
+- **اجرا:** `python full_gig_pipeline_pro_v3.py --model "your_model"`  
 - **نیازها:** Python 3.10+، `pip install -r requirements.txt`  
-- [دانلود کد کامل](https://github.com/uaeaitester-cmd/mena-agentic-ai-eval-pro/raw/main/full_gig_pipeline_pro_v2.py)  
+- [دانلود کد کامل](https://github.com/uaeaitester-cmd/mena-agentic-ai-eval-pro/raw/main/full_gig_pipeline_pro_v3.py)  
 - [Dockerfile](https://github.com/uaeaitester-cmd/mena-agentic-ai-eval-pro/raw/main/Dockerfile)
 
 ## خروجی نمونه Pro
