@@ -2,24 +2,24 @@
 
 **UAE-based | Emirates ID Verified | Dubai Location**
 
-متخصص ارزیابی پیشرفته هوش مصنوعی agentic با تمرکز MENA (تعصب عربی/فارسی، نقاط کور، OODA cycle خودمختار).
+Expert in advanced agentic AI evaluation with MENA focus (Arabic/Persian cultural bias, blind spots, autonomous OODA cycle).
 
-## خدمات Pro (۳۰۰۰$+ ارزش‌محور)
-- ارزیابی agentic AI با OODA (مشاهده-جهت‌یابی-تصمیم-عمل)  
-- کشف bias هوشمند (SHAP + LIME hybrid + clustering)  
-- گزارش visualized پیشرفته (۳ بعدی PDF interactive)  
-- تحویل Docker container + دمو  
-- قیمت: ۱۰۰۰$ پایه + پاداش دقت/بهبود >۲۰%
+## Pro Services (3000$+ Value-Based)
+- Agentic AI eval with OODA (Observe-Orient-Decide-Act)  
+- Smart bias detection (SHAP + LIME hybrid + clustering)  
+- Advanced visualized reports (3D interactive PDF)  
+- Docker container delivery + demo  
+- Pricing: $1000 base + accuracy/improvement bonus >20%
 
-## وضعیت Pipeline
-- **در حال نهایی‌سازی پیشرفته**  
-- **کد از متخصص هوش مصنوعی – دمو کامل + Docker در ۲۴ ساعت**  
-- نیازها: Python 3.10+  
+## Pipeline Status
+- **Advanced finalization in progress**  
+- **Code from AI specialist – full demo + Docker in 24 hours**  
+- Requirements: Python 3.10+  
 
-## خروجی نمونه Pro
-- گزارش PDF با نمودارهای ۳ بعدی + clustering نقاط کور  
-- container آماده اجرا بدون نصب  
+## Sample Pro Output
+- PDF report with 3D charts + blind spot clustering  
+- Ready-to-run container without installation  
 
-**نسخه پایه (۱۵۰۰$+، آماده حالا):** [ai-testing-portfolio](https://github.com/uaeaitester-cmd/ai-testing-portfolio)
+**Entry Version (1500$+, Ready Now):** [ai-testing-portfolio](https://github.com/uaeaitester-cmd/ai-testing-portfolio) – Quick Start
 
-**تماس فوری:** uae.ai.tester@gmail.com | آماده گیگ MENA Pro
+**Contact Now:** uae.ai.tester@gmail.com | Ready for MENA Pro Gigs
