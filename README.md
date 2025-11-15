@@ -13,7 +13,7 @@ Expert in advanced agentic AI evaluation with MENA focus (Arabic/Persian cultura
 
 ## Pipeline Status
 - **Advanced finalization in progress**  
-- **Code from AI specialist – full demo + Docker in 24 hours**  
+- **Code finalizing externally – full demo + Docker in 24 hours**  
 - Requirements: Python 3.10+  
 
 ## Sample Pro Output
