@@ -1,27 +1,25 @@
 # MENA Agentic AI Eval Pro - UAE Resident
 
-متخصص ارزیابی پیشرفته هوش مصنوعی agentic با تمرکز MENA (تعصب فرهنگی، نقاط کور، OODA cycle).
-
 **UAE-based | Emirates ID Verified | Dubai Location**
 
-## خدمات پیشرفته (۳۰۰۰$+ ارزش‌محور)
-- **ارزیابی agentic AI** با OODA cycle (مشاهده-جهت‌یابی-تصمیم-عمل)  
-- **گزارش ۳ بعدی visualized** + SHAP hybrid  
-- **کشف نقاط کور هوشمند** با clustering  
-- **تحویل Docker** + دمو  
-- **قیمت‌گذاری مبتنی بر بهبود** (۱۰۰۰$ پایه + پاداش >۲۰% دقت)
+متخصص ارزیابی پیشرفته هوش مصنوعی agentic با تمرکز MENA (تعصب عربی/فارسی، نقاط کور، OODA cycle خودمختار).
 
-## Pipeline انحصاری Pro v3 (۱۰۰% تست‌شده)
-- **اجرا:** `python full_gig_pipeline_pro_v3.py --model "your_model"`  
-- **نیازها:** Python 3.10+، `pip install -r requirements.txt`  
-- [دانلود کد کامل](https://github.com/uaeaitester-cmd/mena-agentic-ai-eval-pro/raw/main/full_gig_pipeline_pro_v3.py)  
-- [Dockerfile](https://github.com/uaeaitester-cmd/mena-agentic-ai-eval-pro/raw/main/Dockerfile)
+## خدمات Pro (۳۰۰۰$+ ارزش‌محور)
+- ارزیابی agentic AI با OODA (مشاهده-جهت‌یابی-تصمیم-عمل)  
+- کشف bias هوشمند (SHAP + LIME hybrid + clustering)  
+- گزارش visualized پیشرفته (۳ بعدی PDF interactive)  
+- تحویل Docker container + دمو  
+- قیمت: ۱۰۰۰$ پایه + پاداش دقت/بهبود >۲۰%
+
+## وضعیت Pipeline
+- **در حال نهایی‌سازی پیشرفته**  
+- **کد از متخصص هوش مصنوعی – دمو کامل + Docker در ۲۴ ساعت**  
+- نیازها: Python 3.10+  
 
 ## خروجی نمونه Pro
-- گزارش ۳ بعدی PDF interactive (نمودار SHAP + clustering)  
-- Docker container آماده تحویل (اجرا بدون نصب)  
+- گزارش PDF با نمودارهای ۳ بعدی + clustering نقاط کور  
+- container آماده اجرا بدون نصب  
 
-**نسخه پایه (شروع سریع):** [ai-testing-portfolio](https://github.com/uaeaitester-cmd/ai-testing-portfolio) - ۱۵۰۰$+
+**نسخه پایه (۱۵۰۰$+، آماده حالا):** [ai-testing-portfolio](https://github.com/uaeaitester-cmd/ai-testing-portfolio)
 
-لینک LinkedIn: [بعداً اضافه کن]  
-تماس: uae.ai.tester@gmail.com
+**تماس فوری:** uae.ai.tester@gmail.com | آماده گیگ MENA Pro
