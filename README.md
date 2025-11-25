@@ -378,7 +378,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/mena-bias-evaluation/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/mena-bias-evaluation/discussions)
-- **Email**: your.email@example.com
+- **Email**:uae.ai.tester@gmail.com
 
 ---
 
