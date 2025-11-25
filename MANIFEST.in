@@ -1,0 +1,49 @@
+# MANIFEST.in - Specifies additional files to include in package distribution
+
+# Documentation
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+
+# Configuration files
+include config.yaml
+include pytest.ini
+include .pre-commit-config.yaml
+
+# Requirements
+include requirements.txt
+include requirements-dev.txt
+
+# Docker
+include Dockerfile
+include .dockerignore
+
+# Git
+include .gitignore
+include .gitattributes
+
+# Tests
+recursive-include tests *.py
+recursive-include tests *.yaml
+recursive-include tests *.json
+
+# Documentation
+recursive-include docs *.rst
+recursive-include docs *.md
+recursive-include docs *.py
+prune docs/_build
+
+# Exclude compiled and cache files
+global-exclude *.py[cod]
+global-exclude __pycache__
+global-exclude *.so
+global-exclude .DS_Store
+global-exclude *.log
+
+# Exclude development files
+prune .github
+prune htmlcov
+prune .pytest_cache
+prune .mypy_cache
+prune .tox

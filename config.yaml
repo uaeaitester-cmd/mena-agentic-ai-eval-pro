@@ -1,0 +1,82 @@
+# MENA Bias Evaluation Pipeline Configuration
+# Version: 1.0.0
+
+# Model Configuration
+model:
+  name: "CAMeL-Lab/bert-base-arabic-camelbert-da-sentiment"
+  local_path: "input/pytorch_model.bin"
+  cache_dir: ".model_cache"
+  use_local: true
+  device: "cpu"  # Options: cpu, cuda, mps
+  max_length: 512
+
+# Data Configuration
+data:
+  input_dir: "input"
+  output_dir: "output"
+  csv_name: "sentiment_data.csv"
+  encoding: "utf-8-sig"
+  sample_size: 300  # For demo data generation
+  
+# Bias Analysis Configuration
+bias:
+  demographics:
+    - region
+    - gender
+    - age_group
+  regions:
+    - Gulf
+    - Levant
+    - North_Africa
+    - Egypt
+  sentiments:
+    - positive
+    - negative
+    - neutral
+  fairness_threshold: 0.8  # Threshold for acceptable fairness score
+
+# Visualization Configuration
+visualization:
+  dpi: 300
+  figure_size: [12, 8]
+  colormap: "viridis"
+  style: "seaborn-v0_8-darkgrid"
+  save_format: "png"
+  interactive_format: "html"
+  
+# PDF Report Configuration
+report:
+  filename: "report_pro.pdf"
+  page_size: "A4"  # Options: A4, Letter
+  title: "MENA Bias Evaluation Report"
+  author: "MENA Eval Pipeline"
+  subject: "AI Bias Analysis"
+  
+# OODA Loop Configuration
+ooda:
+  accuracy_thresholds:
+    high: 0.70  # Below this is high severity
+    medium: 0.85  # Below this is medium severity
+  enable_logging: true
+  
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "pipeline.log"
+  console: true
+  
+# Performance Configuration
+performance:
+  batch_size: 32
+  num_workers: 4
+  enable_cache: true
+  
+# Feature Flags
+features:
+  enable_shap: true
+  enable_3d_plot: true
+  enable_heatmap: true
+  enable_interactive: true
+  enable_pdf: true
+  generate_sample_data_if_missing: true
