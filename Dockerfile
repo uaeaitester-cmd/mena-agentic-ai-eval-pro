@@ -1,32 +1,23 @@
-# MENA Bias Evaluation Pipeline - Docker Image
-# Python 3.12 - Lightweight version without PyTorch
-
 FROM python:3.12-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy files
-COPY requirements.txt .
-COPY pipeline.py .
+# Copy requirements
+COPY requirements.txt requirements-api.txt ./
 
-# Upgrade pip
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements-api.txt
 
-# Install only essential dependencies (no PyTorch for demo)
-RUN pip install --no-cache-dir \
-    numpy pandas scipy \
-    matplotlib seaborn plotly \
-    reportlab Pillow pypdf \
-    openpyxl python-dateutil pytz \
-    packaging requests urllib3 certifi typing-extensions \
-    cloudpickle tqdm slicer
+# Copy application files
+COPY api.py config.yaml logger.py validators.py model_loader.py performance.py ./
+COPY pipeline.py custom_metrics.py multilingual_support.py ./
 
 # Create directories
-RUN mkdir -p input output
+RUN mkdir -p input output logs
 
-# Environment variables
-ENV PYTHONUNBUFFERED=1
+# Expose port
+EXPOSE 8000
 
-# Run pipeline
-CMD ["python", "pipeline.py"]
+# Start command
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
