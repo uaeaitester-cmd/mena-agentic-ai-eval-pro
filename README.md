@@ -3,11 +3,12 @@ title: MENA Bias Evaluation Pipeline - Enterprise Edition
 emoji: 🚀
 colorFrom: blue
 colorTo: purple
-sdk: gradio
-sdk_version: "4.0.0"
+sdk: static
 app_file: api.py
 pinned: false
 ---
+# 🚀 MENA Bias Evaluation Pipeline - Enterprise Edition
+... (بقیه محتوای شما)
 # 🚀 MENA Bias Evaluation Pipeline - Enterprise Edition
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
