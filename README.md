@@ -8,8 +8,6 @@ app_file: api.py
 pinned: false
 ---
 # 🚀 MENA Bias Evaluation Pipeline - Enterprise Edition
-... (بقیه محتوای شما)
-# 🚀 MENA Bias Evaluation Pipeline - Enterprise Edition
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
