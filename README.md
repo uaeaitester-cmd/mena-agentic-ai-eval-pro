@@ -1,7 +1,6 @@
-
 ---
 title: MENA Bias Evaluation Pipeline - Enterprise Edition
-emoji:  🚀
+emoji: 🚀
 colorFrom: blue
 colorTo: purple
 sdk: gradio
