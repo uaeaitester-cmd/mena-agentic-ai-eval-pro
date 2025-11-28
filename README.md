@@ -1,3 +1,4 @@
+HEAD
 # 🚀 MENA Bias Evaluation Pipeline - Enterprise Edition
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
@@ -393,3 +394,16 @@ If you find this project useful, please consider giving it a star! ⭐
 **Version**: 1.0.0  
 **Last Updated**: November 2025  
 **Status**: Production Ready 🚀
+
+---
+title: Mena Bias Api
+emoji: 📉
+colorFrom: purple
+colorTo: red
+sdk: docker
+pinned: false
+license: mit
+short_description: 'Enterprise-grade bias detection for Arabic/Persian NLP with '
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference c1c03b1952fe313a5482d60b4228f59ac2fe7ddd
