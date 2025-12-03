@@ -216,4 +216,7 @@ async def download_report():
     report_path = Path(config['data']['output_dir']) / config['report']['filename']
     
     if not report_path.exists():
-        raise HTTPException(status_code=404, detail="Report not
+        raise HTTPException(status_code=404, detail="Report notif __name__ == "__main__":
+    import uvicorn
+    port = int(os.getenv("PORT", 7860))  
+    uvicorn.run(app, host="0.0.0.0", port=port)

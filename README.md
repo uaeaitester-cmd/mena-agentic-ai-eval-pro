@@ -453,6 +453,18 @@ sdk: docker
 pinned: false
 license: mit
 short_description: 'Enterprise-grade bias detection for Arabic/Persian NLP with '
+
+---
+
+## 🔄 Connection Error Handling
+
+This script includes a retry mechanism that handles internet disconnections or temporary server issues:
+- **3 retry attempts** for failed requests
+- **2-second delay** between retries
+- Automatic handling of all network errors
+
+**No additional configuration needed - works automatically!** ✅
+
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference c1c03b1952fe313a5482d60b4228f59ac2fe7ddd

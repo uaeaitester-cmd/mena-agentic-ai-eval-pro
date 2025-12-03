@@ -57,3 +57,19 @@ jobs:
     - name: Run flake8
       continue-on-error: true
       run: flake8 . --count --max-line-length=100 --ignore=E203,W503 --statistics || echo "Flake8 skipped"
+
+  deploy:
+    name: Deploy to Railway
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Deploy to Railway
+        uses: bervProject/railway-deploy@main
+        with:
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
+          service: mena-eval-tools
