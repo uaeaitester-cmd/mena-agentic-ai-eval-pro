@@ -1,14 +1,55 @@
 ---
-title: MENA Bias Evaluation Pipeline - Enterprise Edition
+title: MENA Bias API
 emoji: 🚀
 colorFrom: blue
 colorTo: purple
-sdk: static
-app_file: api.py
+sdk: docker
+app_port: 8000
 pinned: false
+license: mit
+short_description: Enterprise-grade bias detection for Arabic/Persian NLP
 ---
-# 🚀 MENA Bias Evaluation Pipeline - Enterprise Edition
 
+# MENA Agentic AI Eval Pro
+
+Enterprise-grade bias detection toolkit for Arabic/Persian sentiment analysis with real-time inference.
+
+## 🚀 Features
+
+- ✅ Real-time Inference Engine
+- ✅ Multi-Model Comparison
+- ✅ FastAPI REST API
+- ✅ Multi-language Support (Arabic, Persian, English)
+
+## 📊 API Documentation
+
+Once deployed, visit `/docs` for interactive API documentation.
+
+## 🔧 Configuration
+
+Set the following environment variables in Hugging Face Spaces settings:
+
+- `HF_TOKEN`: Your Hugging Face token (for model access)
+- `MODEL_NAME`: Default model to use
+
+## 📝 Usage
+
+```python
+import requests
+
+response = requests.post(
+    "https://your-space-name.hf.space/predict",
+    json={"text": "الخدمة ممتازة"}
+)
+print(response.json())
+```
+
+## 🐳 Local Development
+
+```bash
+docker build -t mena-api .
+docker run -p 8000:8000 mena-api
+```
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Code Quality](https://img.shields.io/badge/Code%20Quality-A+-brightgreen.svg)]()
