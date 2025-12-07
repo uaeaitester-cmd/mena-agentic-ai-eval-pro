@@ -1,9 +1,9 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
-import { LayoutDashboard, BarChart3, MessageSquare, FolderTree, CheckCircle, AlertCircle, Settings as SettingsIcon, Menu, X, FlaskConical, Command, ChevronRight } from 'lucide-react';
+import { LayoutDashboard, BarChart3, MessageSquare, FolderTree, CheckCircle, AlertCircle, Settings as SettingsIcon, Menu, X, FlaskConical, Command, ChevronRight, ShieldCheck } from 'lucide-react';
 import { Tab, FileNode } from './types';
 
-// اصلاح مسیرهای ایمپورت به صورت نسبی و ساده
+// اصلاح مسیرها (از @/ به ./)
 import { ReportView } from './components/ReportView';
 import { MetricsDashboard } from './components/MetricsDashboard';
 import { AIChat } from './components/AIChat';
@@ -18,7 +18,10 @@ import { StatusBar } from './components/StatusBar';
 import { ShortcutsModal } from './components/ShortcutsModal';
 
 export default function App() {
-  const [showIntro, setShowIntro] = useState(() => !sessionStorage.getItem('introShown'));
+  const [showIntro, setShowIntro] = useState(() => {
+    return !sessionStorage.getItem('introShown');
+  });
+
   const [activeTab, setActiveTab] = useState<Tab>(Tab.DASHBOARD);
   const [toast, setToast] = useState<{msg: string, type: 'success' | 'info'} | null>(null);
   const [showTerminal, setShowTerminal] = useState(false);
@@ -56,7 +59,9 @@ export default function App() {
     sessionStorage.setItem('introShown', 'true');
   };
 
-  if (showIntro) return <IntroScreen onComplete={handleIntroComplete} />;
+  if (showIntro) {
+    return <IntroScreen onComplete={handleIntroComplete} />;
+  }
 
   const showToast = (msg: string, type: 'success' | 'info' = 'success') => {
     setToast({ msg, type });
@@ -73,14 +78,16 @@ export default function App() {
   const handleAnalyzeCode = (code: string) => {
     const prompt = `لطفاً این قطعه کد را از نظر "امنیت"، "پرفورمنس" و "بایاس‌های احتمالی" تحلیل کن. اگر مشکلی دیدی، راه حل جایگزین (Refactored Code) را بنویس:\n\n\`\`\`python\n${code}\n\`\`\``;
     setAiPrompt(prompt);
-    setActiveTab(Tab.AI_AGENT); 
+    setActiveTab(Tab.AI_AGENT);
     showToast('کد به آزمایشگاه هوش مصنوعی ارسال شد', 'info');
   };
 
   const handleCommandAction = (action: string) => {
     switch (action) {
-      case 'RUN_SCAN': handleRunScan(); break;
-      case 'DOWNLOAD_REPORT': 
+      case 'RUN_SCAN':
+        handleRunScan();
+        break;
+      case 'DOWNLOAD_REPORT':
         setActiveTab(Tab.DASHBOARD);
         showToast('لطفاً از دکمه دانلود در داشبورد استفاده کنید', 'info');
         break;
@@ -93,35 +100,54 @@ export default function App() {
 
   return (
     <div className="flex flex-col h-screen w-full bg-obsidian text-slate-200 font-sans selection:bg-accent/30 overflow-hidden animate-fade-in">
+      
       <div className="flex flex-1 overflow-hidden relative">
         {showTerminal && <TerminalLogs onComplete={handleScanComplete} onClose={() => setShowTerminal(false)} />}
         <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} />
         <ShortcutsModal isOpen={showShortcuts} onClose={() => setShowShortcuts(false)} />
-        <CommandPalette isOpen={showCmdPalette} onClose={() => setShowCmdPalette(false)} onNavigate={setActiveTab} onAction={handleCommandAction} />
+        <CommandPalette 
+          isOpen={showCmdPalette} 
+          onClose={() => setShowCmdPalette(false)} 
+          onNavigate={setActiveTab}
+          onAction={handleCommandAction}
+        />
 
         {toast && (
           <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[200] animate-slide-in pointer-events-none">
-            <div className={`px-4 py-2 rounded-xl border shadow-2xl flex items-center gap-2 backdrop-blur-md pointer-events-auto ${toast.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-400' : 'bg-slate-800/80 border-slate-700 text-white'}`}>
+            <div className={`px-4 py-2 rounded-xl border shadow-2xl flex items-center gap-2 backdrop-blur-md pointer-events-auto ${
+              toast.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-400' : 'bg-slate-800/80 border-slate-700 text-white'
+            }`}>
               {toast.type === 'success' ? <CheckCircle size={16} /> : <AlertCircle size={16} />}
               <span className="text-sm font-bold">{toast.msg}</span>
             </div>
           </div>
         )}
 
-        <div className={`fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-md transition-all duration-500 ease-in-out ${isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsSidebarOpen(false)} />
+        <div 
+          className={`fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-md transition-all duration-500 ease-in-out ${
+            isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+          onClick={() => setIsSidebarOpen(false)}
+        />
 
-        <aside className={`fixed lg:static inset-y-0 right-0 z-50 w-72 bg-charcoal border-l border-slate-800 flex flex-col shadow-2xl transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}`}>
-          <div className="h-20 flex items-center justify-between px-6 border-b border-slate-800/50 bg-slate-900/50">
+        <aside className={`
+          fixed lg:static inset-y-0 right-0 z-50 w-72 bg-charcoal border-l border-slate-800 flex flex-col shadow-2xl
+          transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1)
+          ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}
+        `}>
+          <div className="h-24 flex items-center justify-between px-6 border-b border-slate-800/50 bg-slate-900/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-purple-600 flex items-center justify-center shadow-lg shadow-accent/20 shrink-0">
-                <span className="font-black text-white text-lg">AI</span>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-accent to-purple-600 flex items-center justify-center shadow-lg shadow-accent/20 shrink-0">
+                <ShieldCheck className="text-white" size={28} />
               </div>
               <div>
-                <h1 className="font-bold text-white tracking-tight text-lg">Eval Pro</h1>
-                <p className="text-[10px] text-emerald-400 font-mono tracking-widest uppercase">v2.1 Enterprise</p>
+                <h1 className="font-black text-white tracking-tight text-xl">ALIM AI</h1>
+                <p className="text-[10px] text-emerald-400 font-mono tracking-widest uppercase">Guardian Engine</p>
               </div>
             </div>
-            <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden text-slate-400 hover:text-white transition-colors p-1 rounded-md hover:bg-slate-800"><X size={24} /></button>
+            <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden text-slate-400 hover:text-white transition-colors p-1 rounded-md hover:bg-slate-800">
+              <X size={24} />
+            </button>
           </div>
 
           <nav className="flex-1 py-6 px-3 space-y-2 overflow-y-auto custom-scrollbar">
@@ -131,8 +157,8 @@ export default function App() {
             <NavButton active={activeTab === Tab.FILES} onClick={() => { setActiveTab(Tab.FILES); setIsSidebarOpen(false); }} icon={FolderTree} label="ساختار کد" />
             
             <div className="border-t border-slate-800 my-4 pt-4 px-2">
-               <div className="text-[10px] text-slate-500 font-bold uppercase mb-2 px-2 tracking-wider">ابزارهای هوشمند</div>
-               <NavButton active={activeTab === Tab.AI_AGENT} onClick={() => { setActiveTab(Tab.AI_AGENT); setIsSidebarOpen(false); }} icon={MessageSquare} label="دستیار هوشمند" isSpecial />
+               <div className="text-[10px] text-slate-500 font-bold uppercase mb-2 px-2 tracking-wider">هوش مصنوعی</div>
+               <NavButton active={activeTab === Tab.AI_AGENT} onClick={() => { setActiveTab(Tab.AI_AGENT); setIsSidebarOpen(false); }} icon={MessageSquare} label="دستیار علیم (Alim)" isSpecial />
             </div>
           </nav>
           
@@ -158,17 +184,11 @@ export default function App() {
                 {activeTab === Tab.METRICS && 'آمار و ارقام فنی'}
                 {activeTab === Tab.LAB && 'آزمایشگاه پردازش زبان (Sandbox)'}
                 {activeTab === Tab.FILES && 'بازرسی کد (Code Inspection)'}
-                {activeTab === Tab.AI_AGENT && 'دستیار معمار هوشمند'}
+                {activeTab === Tab.AI_AGENT && 'دستیار هوشمند علیم'}
               </h2>
             </div>
             
             <div className="flex items-center gap-2 lg:gap-3">
-               <div onClick={() => setShowShortcuts(true)} className="hidden md:flex items-center justify-center w-9 h-9 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors cursor-pointer" title="Shortcuts (?)">
-                 <span className="font-bold text-sm">?</span>
-               </div>
-               <button onClick={() => setShowCmdPalette(true)} className="hidden md:flex items-center gap-2 px-3 py-2 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors text-xs mr-2">
-                 <Command size={14} /><span>Type command...</span><kbd className="bg-slate-700 px-1.5 py-0.5 rounded text-[10px] font-mono">⌘K</kbd>
-               </button>
                <button onClick={handleRunScan} className="px-3 py-2 lg:px-4 lg:py-2 bg-accent hover:bg-indigo-500 text-white text-xs font-bold rounded-lg transition shadow-lg shadow-accent/20 flex items-center gap-2 active:scale-95 group">
                 <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse group-hover:scale-150 transition-transform"></span>
                 <span className="hidden lg:inline">اجرای اسکن زنده</span><span className="lg:hidden">اسکن</span>

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MENA AI Eval Pro | Enterprise Suite</title>
+    <title>ALIM AI | Enterprise AI Guardian</title>
+    <meta name="description" content="ALIM: The Advanced Linguistic Intelligence Monitor for MENA AI Safety." />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     
@@ -16,9 +17,9 @@
               mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-              obsidian: '#020617', // پس‌زمینه اصلی
-              charcoal: '#0f172a', // سایدبار
-              accent: '#6366f1',   // رنگ اصلی (بنفش ایندیگو)
+              obsidian: '#020617', 
+              charcoal: '#0f172a',
+              accent: '#6366f1',   
               success: '#10b981',
               warning: '#f59e0b',
               danger: '#f43f5e',
@@ -26,6 +27,7 @@
             animation: {
               'float': 'float 6s ease-in-out infinite',
               'slide-in': 'slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+              'slide-up': 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
               'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
@@ -35,6 +37,10 @@
               },
               slideIn: {
                 'from': { opacity: '0', transform: 'translateY(20px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUp: {
+                'from': { opacity: '0', transform: 'translateY(10px)' },
                 'to': { opacity: '1', transform: 'translateY(0)' },
               }
             }
@@ -48,13 +54,11 @@
         color: #e2e8f0;
         overflow: hidden;
       }
-      /* اسکرول‌بار سفارشی */
       ::-webkit-scrollbar { width: 6px; height: 6px; }
       ::-webkit-scrollbar-track { background: #0f172a; }
       ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #475569; }
       
-      /* افکت شیشه‌ای */
       .glass {
         background: rgba(15, 23, 42, 0.65);
         backdrop-filter: blur(12px);
@@ -69,18 +73,9 @@
         transition: all 0.3s ease;
       }
       .dir-ltr { direction: ltr; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.2.0",
-        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-        "recharts": "https://esm.sh/recharts@2.12.0",
-        "lucide-react": "https://esm.sh/lucide-react@0.344.0",
-        "@google/genai": "https://esm.sh/@google/genai@0.1.1"
-      }
-    }
-    </script>
   </head>
   <body>
     <div id="root"></div>

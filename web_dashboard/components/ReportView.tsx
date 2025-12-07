@@ -16,7 +16,7 @@ export const ReportView: React.FC = () => {
   return (
     <div className="space-y-8 animate-slide-in pb-10">
       
-      {/* 1. Hero Card */}
+      {/* Hero Card */}
       <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900 shadow-2xl p-8">
         <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
@@ -42,10 +42,10 @@ export const ReportView: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Deep Dive Analysis Cards */}
+      {/* Cards Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
-        {/* Persian Morphology Issue */}
+        {/* Persian Morphology */}
         <div className="glass glass-hover p-8 rounded-3xl border-r-4 border-r-warning">
           <div className="flex items-center gap-4 mb-6 border-b border-slate-800 pb-4">
             <div className="w-12 h-12 rounded-2xl bg-warning/10 flex items-center justify-center text-warning">
@@ -83,9 +83,8 @@ export const ReportView: React.FC = () => {
 
       </div>
 
-      {/* 3. Strengths & Weaknesses Grid */}
+      {/* Strengths & Weaknesses */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Coverage */}
         <div className="glass glass-hover p-6 rounded-3xl">
           <div className="flex items-center gap-3 mb-6 text-white font-bold text-lg">
             <Globe className="w-5 h-5 text-blue-400" />
@@ -99,7 +98,6 @@ export const ReportView: React.FC = () => {
           <p className="text-[10px] text-slate-500 mt-4 text-center">داده‌های فارسی نیازمند جمع‌آوری بیشتر است.</p>
         </div>
 
-        {/* Technical Strengths */}
         <div className="glass glass-hover p-6 rounded-3xl">
           <div className="flex items-center gap-3 mb-4 text-white font-bold text-lg">
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
@@ -112,7 +110,6 @@ export const ReportView: React.FC = () => {
           </ul>
         </div>
 
-        {/* Recommendation */}
         <div className="glass glass-hover p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-indigo-950/30">
           <h3 className="text-lg font-bold text-white mb-4">پیشنهاد نهایی</h3>
           <p className="text-sm text-slate-400 mb-6 leading-relaxed">
@@ -138,7 +135,6 @@ export const ReportView: React.FC = () => {
   );
 };
 
-// Sub-components
 const ScoreCard = ({ score, label, color, sub }: any) => (
   <div className="text-center px-6 py-4 bg-slate-950/50 rounded-2xl border border-slate-800 backdrop-blur-sm min-w-[120px] shadow-lg group hover:border-slate-700 transition-all">
     <div className={`text-4xl font-black ${color} mb-1`}>{score}</div>
