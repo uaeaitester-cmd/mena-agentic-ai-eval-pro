@@ -1,25 +1,26 @@
-
-// @ts-nocheck
-export enum Tab {
-  DASHBOARD = 'DASHBOARD',
-  METRICS = 'METRICS',
-  FILES = 'FILES',
-  AI_AGENT = 'AI_AGENT',
-  LAB = 'LAB'
+export interface NavItem {
+  label: string;
+  id: ViewState;
+  icon: any;
 }
 
-export interface MetricData {
-  subject: string;
-  A: number;
+export type ViewState = 'strategy' | 'dashboard' | 'playground';
+
+export interface EvaluationMetric {
+  category: string;
+  score: number;
   fullMark: number;
+  description: string;
 }
 
-export interface FileNode {
-  name: string;
-  type: 'file' | 'folder' | 'docker';
-  children?: FileNode[];
-  language?: string;
-  content?: string;
-  description?: string;
-  size?: string;
+export interface EvaluationResult {
+  metrics: EvaluationMetric[];
+  summary: string;
+  status: 'success' | 'warning' | 'critical';
+}
+
+export interface LanguageContextType {
+  lang: 'en' | 'fa' | 'ar';
+  direction: 'ltr' | 'rtl';
+  toggleLanguage: (lang: 'en' | 'fa' | 'ar') => void;
 }

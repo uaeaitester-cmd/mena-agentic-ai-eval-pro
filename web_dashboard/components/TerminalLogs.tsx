@@ -8,17 +8,17 @@ interface TerminalLogsProps {
 }
 
 const MOCK_LOGS = [
-  { msg: "Initializing MENA Eval Protocol v2.1...", type: "info", delay: 100 },
-  { msg: "Connecting to Docker Container (mena-eval-core)...", type: "info", delay: 800 },
+  { msg: "Initializing ALIM AI Security Protocol v2.1...", type: "info", delay: 100 },
+  { msg: "Connecting to Secure Docker Container...", type: "info", delay: 800 },
   { msg: "Loading Tokenizer: sentencepiece_model.pb", type: "info", delay: 1500 },
-  { msg: "Warning: ZWNJ (Zero-width non-joiner) token not found in vocab!", type: "warn", delay: 2200 },
-  { msg: "Injecting custom morphology rules for Persian...", type: "success", delay: 3000 },
-  { msg: "Scanning 'pipeline.py' for hardcoded API keys...", type: "info", delay: 3800 },
-  { msg: "Analyzing 'benchmarks_ar.json' for gender bias...", type: "info", delay: 4500 },
-  { msg: "Running Counterfactual augmentation...", type: "info", delay: 5200 },
-  { msg: "Calculating BLEU/ROUGE metrics on 500 samples...", type: "info", delay: 6000 },
-  { msg: "Generating Enterprise Report...", type: "success", delay: 7000 },
-  { msg: "Upload complete. Dashboard updated.", type: "done", delay: 7500 },
+  { msg: "Warning: ZWNJ (Zero-width non-joiner) detected in stream", type: "warn", delay: 2200 },
+  { msg: "Applying Persian Morphology Filters...", type: "success", delay: 3000 },
+  { msg: "Scanning 'pipeline.py' for hardcoded credentials...", type: "info", delay: 3800 },
+  { msg: "Analyzing 'benchmarks_ar.json' for cultural bias...", type: "info", delay: 4500 },
+  { msg: "Running Counterfactual Augmentation (CDA)...", type: "info", delay: 5200 },
+  { msg: "Calculating ISO-27001 Compliance Score...", type: "info", delay: 6000 },
+  { msg: "Generating Enterprise Audit Report...", type: "success", delay: 7000 },
+  { msg: "Process Complete. Dashboard Updated.", type: "done", delay: 7500 },
 ];
 
 export const TerminalLogs: React.FC<TerminalLogsProps> = ({ onComplete, onClose }) => {
@@ -41,7 +41,6 @@ export const TerminalLogs: React.FC<TerminalLogsProps> = ({ onComplete, onClose 
     return () => timeouts.forEach(clearTimeout);
   }, [onComplete]);
 
-  // Auto-scroll
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -49,14 +48,14 @@ export const TerminalLogs: React.FC<TerminalLogsProps> = ({ onComplete, onClose 
   }, [logs]);
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in p-4">
+    <div className="fixed inset-0 z-[1200] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in p-4">
       <div className="w-full max-w-2xl bg-[#0c0c0c] border border-slate-700 rounded-xl shadow-2xl overflow-hidden font-mono text-sm relative">
         
         {/* Terminal Header */}
         <div className="bg-[#1a1a1a] px-4 py-2 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2 text-slate-400">
             <Terminal size={14} />
-            <span className="text-xs font-bold">root@mena-eval-pro:~# ./run_audit.sh</span>
+            <span className="text-xs font-bold">root@alim-ai-core:~# ./run_audit.sh</span>
           </div>
           <button onClick={onClose} className="text-slate-500 hover:text-white transition-colors">
             <X size={16} />
